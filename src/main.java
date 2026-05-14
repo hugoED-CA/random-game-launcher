@@ -1,10 +1,12 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
 public class main {
     public static void main(String[] args) {
        int op;
         int i;
        String jogos;
+       Random ale = new Random();
        ArrayList<String> lista = new ArrayList<>();
         Scanner scanner = new Scanner (System.in);
         do {
@@ -18,7 +20,9 @@ public class main {
         System.out.println("Escolha uma das opções acima");
         op = scanner.nextInt();
         scanner.nextLine();
-       
+       if (op < 1 || op > 5){
+            System.out.println("Opção inválida, escolha de 1 a 5");
+        } 
 
         switch (op) {
             case 1: 
@@ -32,12 +36,27 @@ public class main {
                     System.out.println("2- Não(sair)");
                     i = scanner.nextInt();
                     scanner.nextLine();
+                    
            } while(i != 2);
                  break;
            case 2:
                for(i = 0; i < lista.size(); i++)
-               System.out.println(lista.get(i));
+               System.out.println(i+1 + "-" + lista.get(i));
                 break;
+                
+           case 3: 
+               if(lista.size() == 0){
+                   System.out.println("A lista está vazia, adicione os jogos primeiro");
+                   break;
+               }else{
+               //for(rand = 0; rand < lista.size(); ) 
+               int rand = ale.nextInt(lista.size());
+               System.out.println(lista.get(rand));
+               System.out.println("=======Randomizador=======");
+               System.out.println("1- Randomizar jogos da lista");
+               System.out.println("2- Sair do randomizador");
+               break;
+               }
         }
        
         
