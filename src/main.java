@@ -5,6 +5,7 @@ public class main {
     public static void main(String[] args) {
        int op;
         int i;
+       
        String jogos;
        Random ale = new Random();
        ArrayList<String> lista = new ArrayList<>();
@@ -45,20 +46,30 @@ public class main {
                 break;
                 
            case 3: 
-               if(lista.size() == 0){
+               if(lista.isEmpty()){
                    System.out.println("A lista está vazia, adicione os jogos primeiro");
                    break;
                }else{
                //for(rand = 0; rand < lista.size(); ) 
                int rand = ale.nextInt(lista.size());
-               System.out.println(lista.get(rand));
-               System.out.println("=======Randomizador=======");
+                System.out.println("=======Randomizador=======");
+               System.out.println("O jogo aleatório foi: " + lista.get(rand));
+               
                System.out.println("1- Randomizar jogos da lista");
                System.out.println("2- Sair do randomizador");
                break;
                }
+           case 4:
+                int rmv;
+               System.out.println("Digite a posição do jogo que deseja remover");
+               rmv = scanner.nextInt();
+               if(rmv < 0 || rmv > lista.size()){
+                   System.out.println("Posição inválida, a lista tem " + lista.size() +" jogos");
+        }else{
+                   lista.remove(rmv-1);
+               }
+               
         }
-       
         
     }  while (op != 5);     
         }
