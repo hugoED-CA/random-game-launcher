@@ -60,13 +60,23 @@ public class main {
                break;
                }
            case 4:
+               int conf;
                 int rmv;
                System.out.println("Digite a posição do jogo que deseja remover");
                rmv = scanner.nextInt();
                if(rmv < 0 || rmv > lista.size()){
                    System.out.println("Posição inválida, a lista tem " + lista.size() +" jogos");
         }else{
+                   System.out.println("Tem certeza que deseja remover o jogo " + rmv + " da lista?\n"
+                           + "1-Sim\n"
+                           + "2-Não\n");
+                   conf = scanner.nextInt();
+                   if(conf == 1){
+                       System.out.println("O jogo "+ rmv + " foi removido");
+                   }
+                   }
                    lista.remove(rmv-1);
+                   break;
                }
                
         }
