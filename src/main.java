@@ -73,8 +73,12 @@ public class main {
                    conf = scanner.nextInt();
                    if(conf == 1){
                        System.out.println("O jogo "+ rmv + " foi removido");
+                   }else if(conf == 2){
+                       System.out.println("Cancelando...");
+                       break;
                    }
-                   }
+                   
+                   
                    lista.remove(rmv-1);
                    break;
                }
