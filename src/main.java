@@ -11,14 +11,7 @@ public class main {
        ArrayList<String> lista = new ArrayList<>();
         Scanner scanner = new Scanner (System.in);
         do {
-        System.out.println("====================Bem vindo ao Randomizador====================");
-        System.out.println("1- Adicionar jogo na lista");
-        System.out.println("2- Mostrar os jogos da lista");
-        System.out.println("3- Escolher jogo aleatório");
-        System.out.println("4- Remover jogo da lista");
-        System.out.println("5- Encerrar programa");
-        System.out.println("=================================================================");
-        System.out.println("Escolha uma das opções acima");
+        Msgs.menu();
         op = scanner.nextInt();
         scanner.nextLine();
        if (op < 1 || op > 5){
@@ -49,19 +42,26 @@ public class main {
                if(lista.isEmpty()){
                    System.out.println("A lista está vazia, adicione os jogos primeiro");
                    break;
-               }else{
-               //for(rand = 0; rand < lista.size(); ) 
+               }else {
+                   int s;
                int rand = ale.nextInt(lista.size());
                 System.out.println("=======Randomizador=======");
+                do {
                System.out.println("O jogo aleatório foi: " + lista.get(rand));
                
-               System.out.println("1- Randomizar jogos da lista");
+               System.out.println("1- Randomizar novamente");
                System.out.println("2- Sair do randomizador");
+               s = scanner.nextInt();
+                }
+                while (s !=2);
                break;
                }
            case 4:
                int conf;
                 int rmv;
+                for(i = 0; i < lista.size(); i++)
+               System.out.println(i+1 + "-" + lista.get(i));
+                System.out.println("\n\n");
                System.out.println("Digite a posição do jogo que deseja remover");
                rmv = scanner.nextInt();
                if(rmv < 0 || rmv > lista.size()){
